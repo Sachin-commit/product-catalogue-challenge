@@ -1,20 +1,27 @@
 # Product catalogue PoC
 
-A product catalogue built as a foundation to grow from: an **iOS app (Swift, UIKit)** and a
-**Node.js + TypeScript backend**, with featured products, categories, search, product pages and
-enquiries emailed to a sales inbox.
+An iOS app (Swift, UIKit) and a Node.js + TypeScript backend for a product catalogue: featured products,
+categories, search, product pages, and enquiries emailed to a sales inbox. Built as a foundation to grow
+from, not a throwaway prototype.
 
-**The work is in the open pull request:** `feature/catalogue-poc` → `main`
-([pull requests](https://github.com/Sachin-commit/product-catalogue-challenge/pulls)).
-It is left open on purpose, as the challenge asks.
+**The work is in [pull request #1](https://github.com/Sachin-commit/product-catalogue-challenge/pull/1)**
+(`feature/catalogue-poc` → `main`). It is left open on purpose, as the challenge asks.
 
-- Setup and run instructions: [README](https://github.com/Sachin-commit/product-catalogue-challenge/blob/feature/catalogue-poc/README.md)
-- Assumptions, trade-offs and next steps: [DECISIONS.md](https://github.com/Sachin-commit/product-catalogue-challenge/blob/feature/catalogue-poc/DECISIONS.md)
-- How AI was used: [AI_USAGE.md](https://github.com/Sachin-commit/product-catalogue-challenge/blob/feature/catalogue-poc/AI_USAGE.md)
+## Run it (about 5 minutes)
+
+You need Docker Desktop and Xcode 16 or later. No accounts or API keys.
 
 ~~~bash
-git clone https://github.com/Sachin-commit/product-catalogue-challenge.git
-cd product-catalogue-challenge && git checkout feature/catalogue-poc
-docker compose up --build          # API on :8080, sales inbox on :8025
-open ios/Catalogue.xcodeproj       # Run on any iOS 17+ simulator
+git clone -b feature/catalogue-poc https://github.com/Sachin-commit/product-catalogue-challenge.git
+cd product-catalogue-challenge
+docker compose up --build        # API on http://localhost:8080
+open ios/Catalogue.xcodeproj     # press Run on any iOS 17+ simulator
 ~~~
+
+Enquiry emails arrive in the local sales inbox at http://localhost:8025.
+
+## Read more
+
+- [Full README](https://github.com/Sachin-commit/product-catalogue-challenge/blob/feature/catalogue-poc/README.md): setup, configuration, architecture
+- [DECISIONS.md](https://github.com/Sachin-commit/product-catalogue-challenge/blob/feature/catalogue-poc/DECISIONS.md): assumptions, trade-offs, next steps
+- [AI_USAGE.md](https://github.com/Sachin-commit/product-catalogue-challenge/blob/feature/catalogue-poc/AI_USAGE.md): how AI was used
