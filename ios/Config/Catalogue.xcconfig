@@ -1,0 +1,10 @@
+// Build settings for the Catalogue app target.
+
+// Where the app finds the backend. The iOS Simulator shares the Mac's network,
+// so localhost reaches `docker compose up` / `npm run dev` on the same Mac.
+// (`//` starts a comment in .xcconfig files, hence the `$()` in the middle.)
+API_BASE_URL = http:/$()/localhost:8080
+
+// Optional, git-ignored overrides, e.g. your Mac's LAN IP when running on a physical device:
+//   API_BASE_URL = http:/$()/192.168.1.20:8080
+#include? "Local.xcconfig"

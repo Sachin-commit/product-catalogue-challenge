@@ -1,0 +1,27 @@
+# Local stack: the catalogue API plus Mailpit, a fake SMTP server with a web inbox.
+#   docker compose up --build
+#   API:          http://localhost:8080/health
+#   Sales inbox:  http://localhost:8025
+services:
+  api:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    env_file:
+      - path: ./backend/.env
+        required: false
+    environment:
+      PORT: "8080"
+      # Inside the compose network the mail server is reachable by service name.
+      SMTP_HOST: mailpit
+      SMTP_PORT: "1025"
+    depends_on:
+      - mailpit
+    restart: unless-stopped
+
+  mailpit:
+    image: axllent/mailpit:v1.31.6
+    ports:
+      - "8025:8025" # web UI = the "sales inbox"
+      - "1025:1025" # SMTP, so `npm run dev` outside Docker can send here too
+    restart: unless-stopped
